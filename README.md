@@ -12,3 +12,4 @@ A simple web scraper to help you find a host family as au pair on www.aupairworl
 - You can see all the family's links into the file: *aupairworld_links.txt*
 - Run it every day to find your host family!
 
+If you change your search criteria remember to change also the link variable of the program!
