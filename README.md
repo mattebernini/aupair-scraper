@@ -1,6 +1,6 @@
 # Au Pair Scraper
 
-A simple web scraper to help you find a family as au pair on www.aupairworld.com that open chrome pages of new families with the same search criteria.
+A simple web scraper to help you find a host family as au pair on www.aupairworld.com that open chrome pages of new families with the same search criteria.
 
 ## How to use:
 
