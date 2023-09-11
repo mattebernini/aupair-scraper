@@ -11,6 +11,7 @@ class AuPairWorldScraper:
         self.txt_filename = txt_filename
         self.saved_links = set()
         self.data = []
+        self.new_links = []
 
     def load_saved_links(self):
         if os.path.exists(self.txt_filename):
@@ -33,12 +34,17 @@ class AuPairWorldScraper:
 
     def save_to_txt(self):
         if self.data:
+            with open(self.txt_filename, 'r') as file:
+                old_links = file.readlines()
+                file.close()
             with open(self.txt_filename, 'a') as file:
                 for link in self.data:
-                    file.write(link + '\n')
-            print(f'Data saved to {self.txt_filename}')
+                    if link in old_links:
+                        file.write(link + '\n')
+                        self.new_links.append(link)
+                        print(f'Link saved: {link}')
         else:
-            print('No new data to save.')
+            print('No data to save.')
 
     def scrape_and_save_new_links(self):
         self.load_saved_links()
@@ -53,5 +59,5 @@ if __name__ == "__main__":
     scraper.scrape_and_save_new_links()
 
     # Open the links that haven't been saved yet
-    for link in scraper.data:
+    for link in scraper.new_links:
         webbrowser.open(link)
